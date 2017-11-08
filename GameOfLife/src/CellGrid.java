@@ -1,17 +1,28 @@
+/**
+ * @author Philip Abangan
+ * @version 8 November 2017
+ * This class is used to store variables and method that pertain to the whole grid (array of SingleCells).
+ */
 public class CellGrid
 {
-    private SingleCell[][] m_cells;
-    private int m_columns;
-    private int m_rows;
+    private SingleCell[][] m_cells; // A two-dimensional array of single cells.
+    private int m_columns; // Stores the total number of columns in the grid.
+    private int m_rows; // Stores the total number of row in the grid.
 
-    public CellGrid(){}
+    public CellGrid(){} // Default Constructor.
 
+    /**
+     * Double parameter constructor
+     * @param columns is set to m_columns.
+     * @param rows is set m_rows.
+     */
     public CellGrid(int columns, int rows)
     {
         m_columns = columns;
         m_rows = rows;
         m_cells = new SingleCell[m_columns][m_rows];
 
+        // Fills a two-dimensional array with single cell object.
         for(int r = 0; r < m_rows; r++)
         {
             for (int c=0; c< m_columns; c++)
@@ -19,41 +30,66 @@ public class CellGrid
                 m_cells[c][r] = new SingleCell(c,r);
             }
         }
-        gosperGliderGun();
-        pulsarPeriod3();
+        gosperGliderGun(); // Creates the Gosper Glider Gun.
+        pulsarPeriod3(); // Creates the Pulsar Period 3.
     }
 
+    /**
+     * Columns get method.
+     * @return m_columns
+     */
     public int getColumns() {
         return m_columns;
     }
 
+    /**
+     * Columns set method.
+     * @param columns is to m_columns.
+     */
     public void setColumns(int columns) {
         this.m_columns = columns;
     }
 
+    /**
+     * Rows get method.
+     * @return m_rows.
+     */
     public int getRows() {
         return m_rows;
     }
 
+    /**
+     * Rows set method.
+     * @param rows is set to m_rows.
+     */
     public void setRows(int rows) {
         this.m_rows = rows;
     }
 
+    /**
+     * Two-Dimensional array get method.
+     * @return m_cells.
+     */
     public SingleCell[][] getSingleCells() {
         return m_cells;
     }
 
-    //Need to make a method that checks and returns HOW MANY of the cell's neighbors are alive. Might be private.
+    /**
+     * Method that returns how many living cells are next to it.
+     * @param cell is the object going to be checked.
+     * @return aliveCount which is the number of neighbors alive.
+     */
     public int neighborsAlive(SingleCell cell)
     {
         int aliveCount = 0;
         int x = cell.getCurrentColumn();
         int y = cell.getCurrentRow();
 
-        if (x>0 && x+1<this.getColumns())
+        if (x>0 && x+1<this.getColumns()) // If in column parameters.
         {
-            if (y>0 && y+1<this.getRows())
+            if (y>0 && y+1<this.getRows()) // If in row parameters.
             {
+                // The following checks each of the neighbors.
                 if (this.getSingleCells()[x-1][y+1].isAlive())
                 {
                     aliveCount++;
@@ -91,6 +127,12 @@ public class CellGrid
         return aliveCount;
     }
 
+    /**
+     * Checks to see if all the cells are dead.
+     * @param columns is the total columns being checked.
+     * @param rows is the total rows being checked.
+     * @return bool value of whether it's dead or not.
+     */
     public boolean deadGrid(int columns, int rows)
     {
         for(int r = 0; r < rows; r++)
@@ -106,6 +148,9 @@ public class CellGrid
         return true;
     }
 
+    /**
+     * This makes a method that creates a Gosper Glider Gun.
+     */
     public void gosperGliderGun()
     {
         try
@@ -157,6 +202,9 @@ public class CellGrid
         }
     }
 
+    /**
+     * Method that creates a Pulsar Period 3.
+     */
     public void pulsarPeriod3()
     {
         try
