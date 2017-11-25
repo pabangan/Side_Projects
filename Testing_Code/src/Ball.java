@@ -1,61 +1,80 @@
-//Ball.java
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
-import javax.swing.JFrame;
-import javax.swing.Timer;
+import java.awt.*;
+import javax.swing.JPanel;
 
 
-public class Ball
-{
+public class Ball extends JPanel {
+    private final int m_diameter;
+    private final int m_speed;
+    private int m_x;
+    private int horizSpeed;
+    private int m_y;
+    private int vertSpeed;
+    private Color m_color = new Color((int)(Math.random() * 0x1000000));
 
-    private static Bouncer bouncer;
-    private static int delay = 10;
-    private static ExecutorService executor;
-    private static int height = 400;
-    private static Timer timer;
-    private static int width = 600;
-
-    /**
-     * @param args
-     */
-    public static void main( String[ ] args )
-    {
-        JFrame frame = new JFrame( "Bouncing Ball" );
-        Ball.bouncer = new Bouncer( );
-
-        frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-        frame.add( Ball.bouncer.getBall( ) );
-        frame.setSize( Ball.width, Ball.height );
-
-        frame.setVisible( true );
-        frame.addMouseListener( new MouseAdapter( )
-        {
-            @Override
-            public void mouseClicked( MouseEvent e )
-            {
-                System.out.println( "click" );
-                Ball.timer.start( );
-            }
-        } );
-
-        Ball.executor = Executors.newCachedThreadPool( );
-        Ball.timer = new Timer( Ball.delay, new ActionListener( )
-        {
-
-            @Override
-            public void actionPerformed( ActionEvent e )
-            {
-                Ball.executor.execute( Ball.bouncer );
-            }
-
-        } );
-
+    public Ball() {
+        m_diameter = 50;
+        m_speed = 3;
+        m_x = 0;
+        horizSpeed = 3;
+        m_y = 3;
+        vertSpeed = 3;
     }
 
+    public boolean bottomSide() {
+        if ((this.m_y + this.m_diameter) >= this.getHeight()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean leftSide() {
+        if (this.m_x <= 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean rightSide() {
+        if ((this.m_x + this.m_diameter) >= this.getWidth()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean topSide() {
+        if (this.m_y <= 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.setColor(m_color);
+        g.fillOval(this.m_x, this.m_y, this.m_diameter, this.m_diameter);
+    }
+
+    public synchronized void moveBall() {
+        if (this.leftSide()) {
+            this.horizSpeed = this.m_speed;
+        } else if (this.rightSide()) {
+            this.horizSpeed = -this.m_speed;
+        }
+
+        this.m_x += this.horizSpeed;
+
+        if (this.topSide()) {
+            this.vertSpeed = this.m_speed;
+        } else if (this.bottomSide()) {
+            this.vertSpeed = -this.m_speed;
+        }
+
+        this.m_y += this.vertSpeed;
+        this.repaint();
+    }
 }

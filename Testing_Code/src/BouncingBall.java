@@ -1,76 +1,29 @@
-//BouncingBall.java
-
-import java.awt.Color;
-import java.awt.Graphics;
-
-import javax.swing.JPanel;
-
-
-public class BouncingBall extends JPanel
+public class BouncingBall implements Runnable
 {
-    private final int diameter = 50;
-    private final int speed = 3;
-    private int x = 0;
-    private int xSpeed = this.speed;
-    private int y = 0;
-    private int ySpeed = this.speed;
+    private final Ball ball;
 
-    public boolean hitBottomWall( )
+    public BouncingBall( )
     {
-        return ( ( this.y + this.diameter ) >= this.getHeight( ) );
-
+        this.ball = new Ball();
     }
 
-    public boolean hitLeftWall( )
+    public Ball getBall( )
     {
-        return ( this.x <= 0 );
-    }
-
-    public boolean hitRightWall( )
-    {
-        return ( ( this.x + this.diameter ) >= this.getWidth( ) );
-    }
-
-    public boolean hitTopWall( )
-    {
-        return ( this.y <= 0 );
+        this.run();
+        return this.ball;
     }
 
     @Override
-    public void paintComponent( Graphics g )
+    public void run( )
     {
-        super.paintComponent( g );
-        g.setColor( Color.BLUE );
-        g.fillOval( this.x, this.y, this.diameter, this.diameter );
-
-        //Graphics2D g2d = (Graphics2D) g;
-        //g2d.setRenderingHint( RenderingHints.KEY_ANTIALIASING, // Anti-alias!
-               // RenderingHints.VALUE_ANTIALIAS_ON );
+        try
+        {
+            ball.moveBall();
+        }
+        catch (Exception e)
+        {
+            System.out.println("There was an exception in Bouncing Ball runnable.");
+        }
     }
 
-    public synchronized void step( )
-    {
-        if ( this.hitLeftWall( ) )
-        {
-            this.xSpeed = this.speed;
-        }
-        else if ( this.hitRightWall( ) )
-        {
-            this.xSpeed = -this.speed;
-        }
-
-        this.x += this.xSpeed;
-
-        if ( this.hitTopWall( ) )
-        {
-            this.ySpeed = this.speed;
-        }
-        else if ( this.hitBottomWall( ) )
-        {
-            this.ySpeed = -this.speed;
-        }
-
-        this.y += this.ySpeed;
-        this.repaint( );
-    }
 }
