@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/Cipher/Cipher.iml" filepath="$PROJECT_DIR$/Cipher/Cipher.iml" />
       <module fileurl="file://$PROJECT_DIR$/GameOfLife/GameOfLife.iml" filepath="$PROJECT_DIR$/GameOfLife/GameOfLife.iml" />
       <module fileurl="file://$PROJECT_DIR$/Hangman/Hangman.iml" filepath="$PROJECT_DIR$/Hangman/Hangman.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MazeTraversal/MazeTraversal.iml" filepath="$PROJECT_DIR$/MazeTraversal/MazeTraversal.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Side_Projects.iml" filepath="$PROJECT_DIR$/.idea/Side_Projects.iml" />
       <module fileurl="file://$PROJECT_DIR$/TicTacToe/TicTacToe.iml" filepath="$PROJECT_DIR$/TicTacToe/TicTacToe.iml" />
     </modules>
