@@ -6,8 +6,6 @@
       <module fileurl="file://$PROJECT_DIR$/GameOfLife/GameOfLife.iml" filepath="$PROJECT_DIR$/GameOfLife/GameOfLife.iml" />
       <module fileurl="file://$PROJECT_DIR$/Hangman/Hangman.iml" filepath="$PROJECT_DIR$/Hangman/Hangman.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Side_Projects.iml" filepath="$PROJECT_DIR$/.idea/Side_Projects.iml" />
-      <module fileurl="file://$PROJECT_DIR$/TestingCode2/TestingCode2.iml" filepath="$PROJECT_DIR$/TestingCode2/TestingCode2.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Testing_Code/Testing_Code.iml" filepath="$PROJECT_DIR$/Testing_Code/Testing_Code.iml" />
       <module fileurl="file://$PROJECT_DIR$/TicTacToe/TicTacToe.iml" filepath="$PROJECT_DIR$/TicTacToe/TicTacToe.iml" />
     </modules>
   </component>
