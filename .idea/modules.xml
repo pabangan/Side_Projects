@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ChatApp/ChatApp.iml" filepath="$PROJECT_DIR$/ChatApp/ChatApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CheckWriter/CheckWriter.iml" filepath="$PROJECT_DIR$/CheckWriter/CheckWriter.iml" />
       <module fileurl="file://$PROJECT_DIR$/Cipher/Cipher.iml" filepath="$PROJECT_DIR$/Cipher/Cipher.iml" />
       <module fileurl="file://$PROJECT_DIR$/GameOfLife/GameOfLife.iml" filepath="$PROJECT_DIR$/GameOfLife/GameOfLife.iml" />
       <module fileurl="file://$PROJECT_DIR$/Hangman/Hangman.iml" filepath="$PROJECT_DIR$/Hangman/Hangman.iml" />
