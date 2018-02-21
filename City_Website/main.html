@@ -2,9 +2,134 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Phil's First Website</title>
+    <title>Test Map</title>
+    <link rel="stylesheet" href="style2.css">
 </head>
 <body>
+
+<h1>Prototype Map YALL</h1>
+
+<div id="map-canvas"></div>
+
+<script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-l4mDaTvauie7_l4IpI9tuiRJzYjiP7I&callback=initMap">
+</script>
+<script src="Mapster.js"></script> <!-- I think this is where functionality events occur.-->
+<script src="map-options.js"></script> <!--This is where the configurations for the map happen. -->
+<script src="script.js"></script> <!--The main script file, and I think this is where MAP connects to website. -->
+<script src="Markers.js"></script>
+
+<nav>
+    <ul>
+        <li><input type="button" value="Population" onclick="allCityMarkers(1)"></li>
+        <li><input type="button" value="Density" onclick="allCityMarkers(2)"></li>
+        <li><input type="button" value="Area" onclick="allCityMarkers(3)"></li>
+        <li><input type="button" value="Temperature (FEB)" onclick="allCityMarkers(4)"></li>
+    </ul>
+</nav>
+
+<table>
+    <tr>
+        <th>City</th>
+        <th>Population</th>
+        <th>Area</th>
+        <th>Average Temperature</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+    </tr>
+
+    <!--First Row-->
+    <tr>
+        <td>Des Moines</td> <!--This data corresponds with the City column.-->
+        <td>215,328</td> <!--This data corresponds with the Population column.-->
+        <td>75.8 square miles</td> <!--This data corresponds with the Area column.-->
+        <td>21 Fahrenheit</td> <!--This data corresponds with the Ave Temp column.-->
+        <td>41.619549</td> <!--This data corresponds with the Latitude column.-->
+        <td>-93.598022</td> <!--This data corresponds with the Longitude column.-->
+    </tr>
+    <!--Second Row-->
+    <tr>
+        <td>Cedar Rapids</td> <!--This data corresponds with the City column.-->
+        <td>131,118</td> <!--This data corresponds with the Population column.-->
+        <td>63.1 square miles</td> <!--This data corresponds with the Area column.-->
+        <td>20 Fahrenheit</td> <!--This data corresponds with the Ave Temp column.-->
+        <td>41.977879</td> <!--This data corresponds with the Latitude column.-->
+        <td>-91.665627</td> <!--This data corresponds with the Longitude column.-->
+    </tr>
+    <!--Third Row-->
+    <tr>
+        <td>Davenport</td> <!--This data corresponds with the City column.-->
+        <td>102,608</td> <!--This data corresponds with the Population column.-->
+        <td>62.8 square miles</td> <!--This data corresponds with the Area column.-->
+        <td>15 Fahrenheit</td> <!--This data corresponds with the Ave Temp column.-->
+        <td>41.5219</td> <!--This data corresponds with the Latitude column.-->
+        <td>-90.5758</td> <!--This data corresponds with the Longitude column.-->
+    </tr>
+    <!--Fourth Row-->
+    <tr>
+        <td>Sioux City</td> <!--This data corresponds with the City column.-->
+        <td>82,105</td> <!--This data corresponds with the Population column.-->
+        <td>54.8 square miles</td> <!--This data corresponds with the Area column.-->
+        <td>10 Fahrenheit</td> <!--This data corresponds with the Ave Temp column.-->
+        <td>42.4961</td> <!--This data corresponds with the Latitude column.-->
+        <td>-96.4083</td> <!--This data corresponds with the Longitude column.-->
+    </tr>
+    <!--Fifth Row-->
+    <tr>
+        <td>Iowa City</td> <!--This data corresponds with the City column.-->
+        <td>74,384</td> <!--This data corresponds with the Population column.-->
+        <td>24.2 square miles</td> <!--This data corresponds with the Area column.-->
+        <td>25 Fahrenheit</td> <!--This data corresponds with the Ave Temp column.-->
+        <td>41.6611</td> <!--This data corresponds with the Latitude column.-->
+        <td>-91.5301</td> <!--This data corresponds with the Longitude column.-->
+    </tr>
+    <!--Sixth Row-->
+    <tr>
+        <td>Waterloo</td> <!--This data corresponds with the City column.-->
+        <td>67,940</td> <!--This data corresponds with the Population column.-->
+        <td>60.7 square miles</td> <!--This data corresponds with the Area column.-->
+        <td>9 Fahrenheit</td> <!--This data corresponds with the Ave Temp column.-->
+        <td>42.4944</td> <!--This data corresponds with the Latitude column.-->
+        <td>-92.3389</td> <!--This data corresponds with the Longitude column.-->
+    </tr>
+    <!--Seventh Row-->
+    <tr>
+        <td>Ames</td> <!--This data corresponds with the City column.-->
+        <td>66,190</td> <!--This data corresponds with the Population column.-->
+        <td>21.6 square miles</td> <!--This data corresponds with the Area column.-->
+        <td>10 Fahrenheit</td> <!--This data corresponds with the Ave Temp column.-->
+        <td>42.0317</td> <!--This data corresponds with the Latitude column.-->
+        <td>-93.6167</td> <!--This data corresponds with the Longitude column.-->
+    </tr>
+    <!--Eighth Row-->
+    <tr>
+        <td>West Des Moines</td> <!--This data corresponds with the City column.-->
+        <td>63,325</td> <!--This data corresponds with the Population column.-->
+        <td>26.8 square miles</td> <!--This data corresponds with the Area column.-->
+        <td>12 Fahrenheit</td> <!--This data corresponds with the Ave Temp column.-->
+        <td>41.577210</td> <!--This data corresponds with the Latitude column.-->
+        <td>-93.711330</td> <!--This data corresponds with the Longitude column.-->
+    </tr>
+    <!--Ninth Row-->
+    <tr>
+        <td>Council Bluffs</td> <!--This data corresponds with the City column.-->
+        <td>62,245</td> <!--This data corresponds with the Population column.-->
+        <td>37.4 square miles</td> <!--This data corresponds with the Area column.-->
+        <td>13 Fahrenheit</td> <!--This data corresponds with the Ave Temp column.-->
+        <td>41.2617</td> <!--This data corresponds with the Latitude column.-->
+        <td>-95.8650</td> <!--This data corresponds with the Longitude column.-->
+    </tr>
+    <!--Tenth Row-->
+    <tr>
+        <td>Urbandale</td> <!--This data corresponds with the City column.-->
+        <td>43,150</td> <!--This data corresponds with the Population column.-->
+        <td>20.7 square miles</td> <!--This data corresponds with the Area column.-->
+        <td>12 Fahrenheit</td> <!--This data corresponds with the Ave Temp column.-->
+        <td>41.6266667</td> <!--This data corresponds with the Latitude column.-->
+        <td>-93.7119444</td> <!--This data corresponds with the Longitude column.-->
+    </tr>
+
+</table>
 
 </body>
 </html>
